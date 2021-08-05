@@ -1,0 +1,14 @@
+version: '3'
+services:
+    mysql:
+        image: mysql:5.7
+        environment:
+            MYSQL_DATABASE: boost
+            MYSQL_ROOT_PASSWORD: boost123
+            MYSQL_USER: boost_user
+            MYSQL_PASSWORD: boost123
+            TZ: Asia/Tokyo
+        ports:
+            - 3306:3306
+        volumes:
+            - ./.docker/mysql/data:/var/lib/mysql

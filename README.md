@@ -29,3 +29,14 @@ image pullをやり直すとき
 ```shell
 make build
 ```
+
+### 動作確認
+
+ - http://localhost/index
+     - 初期ページが表示されること
+ - http://localhost/getKey
+     - redisのデータが表示されていること
+ - http://localhost:8001
+     - redisinsightでデータがredisのデータが確認できること
+ - http://localhost/users
+     - userTBLのデータが参照できること

@@ -1,0 +1,12 @@
+version: '3'
+services:
+    node:
+        image: node:16.6.1
+        ports:
+            - 3000:3000
+        volumes:
+            - ./resources/view:/app
+        working_dir: /app
+        command: npm run dev
+
+# docker run --rm -it -v $(pwd):/app  -w /app node:16.6.1 npm install

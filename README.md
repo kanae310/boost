@@ -1,42 +1,96 @@
 # Boost
 
+# 概要
 
-## Local環境構築
+TODO:
 
-### 事前準備
+# Local環境構築
+
+## 事前準備
 
  - docker for mac インストール済みであること
  - 当プロジェクトをcloneすること
 
-### 実行方法
+### phpのみの場合
 
-以下の3つの方法のいづれかを使ってください。
-
-バックグラウンドで動かしたいとき
+1. 該当プロジェクトをupする
 
 ```shell
 make up
 ```
 
-バックグラウンドで動かさないとき
+ - バックグラウンドで動かすとき
 
 ```shell
-make upf
+make upd
 ```
 
-image pullをやり直すとき
+- buildをやり直すとき
 
 ```shell
 make build
 ```
 
-### 動作確認
+#### 動作確認
 
- - http://localhost/index
-     - 初期ページが表示されること
- - http://localhost/getKey
-     - redisのデータが表示されていること
- - http://localhost:8001
-     - redisinsightでデータがredisのデータが確認できること
- - http://localhost/users
-     - userTBLのデータが参照できること
+```
+http://localhost
+http://localhost/user
+http://localhost/api
+http://localhost/api/user
+```
+
+
+### frontendでnodeを使う場合(nextjs)
+
+1. 該当プロジェクトをupする
+
+```shell
+make upFrontAndBack
+```
+
+- バックグラウンドで動かさないとき
+
+```shell
+make updFrontAndBack
+```
+
+- buildをやり直すとき
+
+```shell
+make buildFrontAndBack
+```
+
+#### 動作確認
+
+##### laravel
+
+```
+http://localhost
+http://localhost/user
+http://localhost/api
+http://localhost/api/user
+```
+
+##### node
+
+```
+http://localhost:3000
+```
+
+
+## tool紹介
+
+### adminer
+
+DB接続ツールです
+接続する際はサーバー:mysql、その他の情報はdocker-compose-mysql.ymlを参照してください。
+
+https://www.adminer.org/
+
+### redisinsight
+
+redisのGUIツールです。
+接続する際はHost:redis、Poer:6379、Name:任意で接続してください
+
+https://redislabs.com/redis-enterprise/redis-insight/

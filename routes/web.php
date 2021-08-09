@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
-Route::get('/index', 'HelloController@index');
-Route::get('/getKey', 'HelloController@getKey');
+Route::get('/', 'HelloController@index');
+Route::get('/user', 'HelloController@user');

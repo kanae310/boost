@@ -1,3 +1,4 @@
+# php
 build:
 	docker-compose \
 		-f docker-compose-adminer.yml \
@@ -16,9 +17,9 @@ up:
 		-f docker-compose-redisinsight.yml \
 		-f docker-compose-php-fpm.yml \
 		-f docker-compose-nginx.yml \
-		up -d
+		up
 
-upf:
+upd:
 	docker-compose \
 		-f docker-compose-adminer.yml \
 		-f docker-compose-mysql.yml \
@@ -26,7 +27,7 @@ upf:
 		-f docker-compose-redisinsight.yml \
 		-f docker-compose-php-fpm.yml \
 		-f docker-compose-nginx.yml \
-		up
+		up -d
 
 down:
 	docker-compose \
@@ -38,18 +39,51 @@ down:
 		-f docker-compose-nginx.yml \
 		down
 
-buildNode:
+
+# node - php
+buildFrontAndBack:
 	cd ./resources/view && ./init_node_modules.sh && cd ../../ && \
-	docker-compose -f docker-compose-node.yml build --no-cache
+	docker-compose \
+		-f docker-compose-adminer.yml \
+		-f docker-compose-mysql.yml \
+		-f docker-compose-redis.yml \
+		-f docker-compose-redisinsight.yml \
+		-f docker-compose-php-fpm.yml \
+		-f docker-compose-node.yml \
+		-f docker-compose-nginx.yml \
+		build --no-cache
 
-upNode:
+upFrontAndBack:
 	cd ./resources/view && ./init_node_modules.sh && cd ../../ && \
-	docker-compose -f docker-compose-node.yml up -d
+	docker-compose \
+		-f docker-compose-adminer.yml \
+		-f docker-compose-mysql.yml \
+		-f docker-compose-redis.yml \
+		-f docker-compose-redisinsight.yml \
+		-f docker-compose-php-fpm.yml \
+		-f docker-compose-node.yml \
+		-f docker-compose-nginx.yml \
+		up
 
-upfNode:
+updFrontAndBack:
 	cd ./resources/view && ./init_node_modules.sh && cd ../../ && \
-	docker-compose -f docker-compose-node.yml up
+	docker-compose \
+		-f docker-compose-adminer.yml \
+		-f docker-compose-mysql.yml \
+		-f docker-compose-redis.yml \
+		-f docker-compose-redisinsight.yml \
+		-f docker-compose-php-fpm.yml \
+		-f docker-compose-node.yml \
+		-f docker-compose-nginx.yml \
+		up -d
 
-down:
-	docker-compose -f docker-compose-node.yml down
-
+downFrontAndBack:
+	docker-compose \
+		-f docker-compose-adminer.yml \
+		-f docker-compose-mysql.yml \
+		-f docker-compose-redis.yml \
+		-f docker-compose-redisinsight.yml \
+		-f docker-compose-php-fpm.yml \
+		-f docker-compose-node.yml \
+		-f docker-compose-nginx.yml \
+		down

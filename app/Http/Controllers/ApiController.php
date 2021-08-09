@@ -5,13 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 
-class HelloController extends Controller
+class ApiController extends Controller
 {
     public function index()
     {
         $hello = 'Hello,World!';
 
-        return view('index', ['hello' => $hello]);
+        return response()->json([
+            'message' => 'ok',
+            'data' => $hello
+        ], 200, [], JSON_UNESCAPED_UNICODE);
     }
 
     public function user()
@@ -22,6 +25,9 @@ class HelloController extends Controller
         Redis::set('key1', $hello_array);
         Redis::expire("key1", 60);
 
-        return view('user', ['hello_array' => $hello_array]);
+        return response()->json([
+            'message' => 'ok',
+            'data' => $hello_array
+        ], 200, [], JSON_UNESCAPED_UNICODE);
     }
 }

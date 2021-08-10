@@ -1,5 +1,6 @@
 # php
 build:
+	./init_composer.sh && \
 	docker-compose \
 		-f docker-compose-adminer.yml \
 		-f docker-compose-mysql.yml \
@@ -10,6 +11,7 @@ build:
 		build --no-cache
 
 up:
+	./init_composer.sh && \
 	docker-compose \
 		-f docker-compose-adminer.yml \
 		-f docker-compose-mysql.yml \
@@ -20,6 +22,7 @@ up:
 		up
 
 upd:
+	./init_composer.sh && \
 	docker-compose \
 		-f docker-compose-adminer.yml \
 		-f docker-compose-mysql.yml \
@@ -42,6 +45,7 @@ down:
 
 # node - php
 buildFrontAndBack:
+	./init_composer.sh && \
 	cd ./resources/view && ./init_node_modules.sh && cd ../../ && \
 	docker-compose \
 		-f docker-compose-adminer.yml \
@@ -54,6 +58,7 @@ buildFrontAndBack:
 		build --no-cache
 
 upFrontAndBack:
+	./init_composer.sh && \
 	cd ./resources/view && ./init_node_modules.sh && cd ../../ && \
 	docker-compose \
 		-f docker-compose-adminer.yml \
@@ -66,6 +71,7 @@ upFrontAndBack:
 		up
 
 updFrontAndBack:
+	./init_composer.sh && \
 	cd ./resources/view && ./init_node_modules.sh && cd ../../ && \
 	docker-compose \
 		-f docker-compose-adminer.yml \

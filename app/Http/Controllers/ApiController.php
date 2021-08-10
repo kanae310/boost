@@ -19,10 +19,10 @@ class ApiController extends Controller
 
     public function user()
     {
-        $hello_array = ['nakao', 'tanaka', 'takarada'];
+        $hello_array = ['中尾', 'tanaka', 'takarada'];
 
         // key1で60秒でキャッシュを作成する
-        Redis::set('key1', $hello_array);
+        Redis::set('key1', json_encode($hello_array,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES));
         Redis::expire("key1", 60);
 
         return response()->json([

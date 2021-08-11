@@ -5,7 +5,7 @@ const url = "http://localhost/api/user";
 
 export default function User() {
 
-    const [pser, setUser] = useState([]);
+    const [user, setUser] = useState([]);
 
     useEffect(() => {
         const response = fetch(url)
@@ -28,8 +28,8 @@ export default function User() {
     }, []);
 
     let list = [];
-    for(let i in pser){
-        list.push(<li>{pser[i]}</li>);
+    for(let i in user){
+        list.push(<li>{user[i]}</li>);
     }
 
     return (

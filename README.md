@@ -30,6 +30,13 @@ make updFrontAndBack # バックグラウンドで動かすとき
 make buildFrontAndBack # buildをやり直すとき
 ```
 
+## ローカル環境止めるコマンド
+
+```shell
+make down
+make downFrontAndBack
+```
+
 #### 動作確認
 
 - http://localhost

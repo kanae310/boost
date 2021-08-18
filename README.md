@@ -2,7 +2,15 @@
 
 # 概要
 
-TODO:
+boost用のテンプレートリポジトリです。
+
+# アーキテクチャー
+
+ - nginx
+ - php-fpm7(Laravel)
+ - mysql5.7
+ - redis
+ - node16.6.1
 
 # Local環境構築
 

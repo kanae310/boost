@@ -11,24 +11,15 @@ TODO:
  - docker for mac インストール済みであること
  - 当プロジェクトをcloneすること
 
-### phpのみの場合
-
-1. 該当プロジェクトをupする
+## ローカル環境立ち上げるコマンド
 
 ```shell
-make up
-```
-
- - バックグラウンドで動かすとき
-
-```shell
-make upd
-```
-
-- buildをやり直すとき
-
-```shell
-make build
+make up  # 該当プロジェクトをupする
+make upd  # バックグラウンドで動かすとき
+make build  # buildをやり直すとき
+make upFrontAndBack # frontendでnodeを使う場合(nextjs)
+make updFrontAndBack # バックグラウンドで動かすとき
+make buildFrontAndBack # buildをやり直すとき
 ```
 
 #### 動作確認
@@ -37,41 +28,8 @@ make build
 - http://localhost/user
 - http://localhost/api
 - http://localhost/api/user
-
-### frontendでnodeを使う場合(nextjs)
-
-1. 該当プロジェクトをupする
-
-```shell
-make upFrontAndBack
-```
-
-- バックグラウンドで動かさないとき
-
-```shell
-make updFrontAndBack
-```
-
-- buildをやり直すとき
-
-```shell
-make buildFrontAndBack
-```
-
-#### 動作確認
-
-##### laravel
-
- - http://localhost
- - http://localhost/user
- - http://localhost/api
- - http://localhost/api/user
-
-##### node
-
-```
-http://localhost:3000
-```
+- http://localhost:3000
+   - nodeを使う場合
 
 
 ## tool紹介

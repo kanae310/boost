@@ -11,4 +11,8 @@ RUN mv composer.phar /usr/local/bin/composer
 RUN apt-get update
 RUN apt-get install -y git zip unzip
 
+#コンテナ起動直前に流すスクリプト追加
+COPY docker-entrypoint.sh /usr/local/bin
+RUN chmod 777 /usr/local/bin/docker-entrypoint.sh
+
 RUN pecl install redis && docker-php-ext-enable redis

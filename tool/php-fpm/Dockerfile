@@ -1,5 +1,7 @@
 FROM php:7.4.22-fpm
 
+WORKDIR /var/www/html
+
 #pdoインストール
 RUN docker-php-ext-install pdo_mysql
 

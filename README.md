@@ -46,6 +46,9 @@ make downFrontAndBack
 - http://localhost:3000
    - nodeを使う場合
 
+## NginxのBasic認証情報
+ID: boost
+PW: M%9KM-YhJ*FT
 
 ## tool紹介
 

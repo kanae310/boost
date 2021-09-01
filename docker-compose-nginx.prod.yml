@@ -6,4 +6,5 @@ services:
             - 80:80
         volumes:
             - .:/usr/share/nginx/html
-            - ./tool/nginx/default.conf:/etc/nginx/conf.d/default.conf
+            - ./tool/nginx/default.prod.conf:/etc/nginx/conf.d/default.conf
+            - ./tool/nginx/.htpasswd:/etc/nginx/htpasswd/.htpasswd

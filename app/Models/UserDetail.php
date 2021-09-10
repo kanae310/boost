@@ -8,5 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class UserDetail extends Model
 {
     use HasFactory;
-    
+
+    protected $fillable = [
+        'user_detail_id',
+        'gender',
+        'birthday',
+        'profile_img',
+    ];
 }

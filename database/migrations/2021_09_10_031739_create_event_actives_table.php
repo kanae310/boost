@@ -14,7 +14,7 @@ class CreateEventActivesTable extends Migration
     public function up()
     {
         Schema::create('event_actives', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('event_active_id');
             $table->timestamps();
         });
     }

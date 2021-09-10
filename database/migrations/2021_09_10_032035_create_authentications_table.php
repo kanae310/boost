@@ -14,7 +14,9 @@ class CreateAuthenticationsTable extends Migration
     public function up()
     {
         Schema::create('authentications', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('user_id');
+            $table->char('email', 255);
+            $table->char('password', 255);
             $table->timestamps();
         });
     }

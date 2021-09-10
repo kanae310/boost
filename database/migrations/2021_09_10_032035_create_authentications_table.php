@@ -17,6 +17,7 @@ class CreateAuthenticationsTable extends Migration
             $table->bigIncrements('user_id');
             $table->char('email', 255);
             $table->char('password', 255);
+            $table->rememberToken();
             $table->timestamps();
         });
     }

@@ -9,10 +9,14 @@ class Authentication extends Model
 {
     use HasFactory;
 
-    protected $hidden = [
+    protected $fillable = [
         'user_id',
+    ];
+
+    protected $hidden = [
         'email',
         'password',
+        'remember_token',
     ];
 
     protected $casts = [

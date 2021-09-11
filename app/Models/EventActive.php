@@ -12,4 +12,9 @@ class EventActive extends Model
     protected $fillable = [
         'event_active_id',
     ];
+
+    public function event()
+    {
+        return $this->belongsTo('App\Event');
+    }
 }

@@ -22,8 +22,9 @@ class CreateEventsTable extends Migration
             $table->datetime('end_time');
             $table->char('location', 255);
             $table->integer('category_id');
-            $table->integer('user_id');
-            $table->char('event_img', 255);
+            $table->integer('host_user_id');
+            $table->char('discord_url', 255);
+            // $table->char('event_img', 255);
             $table->timestamps();
         });
     }

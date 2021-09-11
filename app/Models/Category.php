@@ -13,4 +13,9 @@ class Category extends Model
         'category_id',
         'category_name',
     ];
+
+    public function event()
+    {
+        return $this->hasMany('App\EventActive');
+    }
 }

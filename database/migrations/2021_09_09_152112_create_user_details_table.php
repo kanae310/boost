@@ -15,10 +15,10 @@ class CreateUserDetailsTable extends Migration
     {
         Schema::create('user_details', function (Blueprint $table) {
             $table->bigIncrements('user_detail_id');
-            $table->boolean('gender')->nullable;
+            $table->char('gender',255)->nullable;
             $table->char('birthday', 255)->nullable;
             $table->char('university_code', 255);
-            $table->char('profile_img', 255);
+            $table->char('profile_img', 255)->nullable;
             $table->timestamps();
         });
     }

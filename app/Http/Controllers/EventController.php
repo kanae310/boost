@@ -12,12 +12,21 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function categoryShow(Event $event)
+    {
+        $category_show = $event->categoryShow();
+        dd($category_show);
+
+        return view('index', compact('category_show'));
+    }
+
     public function detail(Event $event)
     {
         $event_id = 1;
         $event_detail = $event->eventDetail($event_id);
         dd($event_detail);
-        return view('detail', compact('event_detail'));
+        return view('event.detail', compact('event_detail'));
     }
 
     /**

@@ -21,3 +21,4 @@ Route::get('/', 'HelloController@index');
 Route::get('/user', 'HelloController@user');
 Route::get('/event/detail/{event_id}', 'EventController@detail');
 Route::get('/event/{category_id?}', 'EventController@show');
+Route::get('/category', 'EventController@categoryShow');

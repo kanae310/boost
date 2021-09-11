@@ -35,6 +35,15 @@ class Event extends Model
         return $this->belongsTo('App\EventActive');
     }
 
+    public function categoryShow()
+    {
+        $category_show = DB::table('categories')
+                        ->select('category_id', 'category_name')
+                        ->get();
+
+        return $category_show;
+    }
+
 
     public function eventShow(int $category_id = null)
     {

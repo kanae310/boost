@@ -13,12 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-
 Route::get('/', 'HelloController@index');
-Route::get('/user', 'HelloController@user');
-Route::get('/event/detail/{event_id}', 'EventController@detail');
-Route::get('/event/{category_id?}', 'EventController@show');
-Route::get('/category', 'EventController@categoryShow');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+Route::get('/user', 'HelloController@user')->middleware(['auth'])->name('user');
+Route::get('/event/detail/{event_id}', 'EventController@detail')->middleware(['auth'])->name('user');
+Route::get('/event/{category_id?}', 'EventController@show')->middleware(['auth'])->name('user');
+Route::get('/category', 'EventController@categoryShow')->middleware(['auth'])->name('user');
+
+require __DIR__ . '/auth.php';

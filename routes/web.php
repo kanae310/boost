@@ -21,8 +21,10 @@ Route::get('/dashboard', function () {
 
 Route::get('/user', 'HelloController@user')->middleware(['auth'])->name('user');
 Route::get('/event/detail/{event_id}', 'EventController@detail')->middleware(['auth'])->name('user');
-Route::get('/event/{category_id?}', 'EventController@show')->middleware(['auth'])->name('user');
+Route::get('/event', 'EventController@show')->middleware(['auth'])->name('user');
+Route::get('/event/{category_id}', 'EventController@categoryShow')->middleware(['auth'])->name('user');
 Route::get('/category', 'EventController@categoryShow')->middleware(['auth'])->name('user');
+Route::get('/event/apply/{event_id}', 'ApplicationController@store')->middleware(['auth'])->name('user');
 Route::get('/mypage', 'UserController@Show')->middleware(['auth'])->name('user');
 
 

@@ -78,4 +78,22 @@ class Application extends Model
         dd($post_show);
         return $post_show;
     }
+
+    // 過去に参加したイベント一覧
+    public function pastAppliedShow()
+    {
+        $user_id = Auth::id();
+        $now = date("Y-m-d H:i:s");
+
+        $past_applied_show = DB::table('applications')
+                ->join('events', 'events.event_id', '=', 'applications.event_id')
+                ->join('event_actives', 'events.event_id', '=', 'event_active_id')
+                ->join('users', 'id', '=', 'user_id')
+                ->select('events.event_id', 'event_name', 'application_period', 'location', 'host_user_id', 'category_id')
+                ->where('id', '=', $user_id)
+                ->where('end_time', '<', $now)
+                ->get();
+        dd($past_applied_show);
+        return $past_applied_show;
+    }
 }

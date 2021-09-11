@@ -79,4 +79,12 @@ class ApplicationController extends Controller
         return view('post_show', ['post_show' => $post_show]);
 
     }
+
+    public function pastAppliedShow(Application $application)
+    {
+        $past_applied_show = $application->pastAppliedShow();
+
+        return view('past_applied_show', ['past_applied_show' => $past_applied_show]);
+
+    }
 }

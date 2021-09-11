@@ -13,7 +13,7 @@ class UserDetail extends Model
         'user_detail_id',
         'gender',
         'birthday',
-        'university_code',
+        'university_id',
         'profile_image',
     ];
 }

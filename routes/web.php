@@ -19,5 +19,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HelloController@index');
 Route::get('/user', 'HelloController@user');
-Route::get('/event/detail', 'EventController@detail');
+Route::get('/event/detail/{event_id}', 'EventController@detail');
 Route::get('/event/show/{category_id?}', 'EventController@show');

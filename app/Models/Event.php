@@ -35,6 +35,35 @@ class Event extends Model
         return $this->belongsTo('App\EventActive');
     }
 
+    public function categoryShow()
+    {
+        $category_show = DB::table('categories')
+                        ->select('category_id', 'category_name')
+                        ->get();
+
+        return $category_show;
+    }
+
+
+    public function eventShow(int $category_id = null)
+    {
+        if ($category_id == null) {
+            $event_show = DB::table('events')
+                        ->join('event_actives', 'event_id', '=', 'event_active_id')
+                        ->select('event_id', 'event_name', 'application_period', 'location', 'host_user_id', 'category_id')
+                        ->get();
+        }
+        else {
+            $event_show = DB::table('events')
+                        ->join('event_actives', 'event_id', '=', 'event_active_id')
+                        ->select('event_id', 'event_name', 'application_period', 'location', 'host_user_id', 'category_id')
+                        ->where('category_id', '=', $category_id)
+                        ->get();
+        }
+
+        return $event_show;
+    }
+
     public function eventDetail(int $event_id)
     {
         $event_detail = DB::table('events')

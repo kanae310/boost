@@ -48,18 +48,8 @@ class User extends Authenticatable
         return $this->hasMany('App\Application');
     }
 
-    public function userInfo()
+    public function user_detail()
     {
-        DB::enableQueryLog();
-
-
-        $mypage = DB::table('users')
-            ->join('user_details', 'id', '=', 'user_detail_id')
-            ->select('id', 'user_name', 'email', 'gender', 'birthday')
-            ->toSql();
-
-        var_dump($mypage);
-
-        return $mypage;
+        return $this->hasOne('App\UserDetails');
     }
 }

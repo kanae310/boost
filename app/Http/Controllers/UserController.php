@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\UserDetail;
 
 class UserController extends Controller
 {
@@ -12,9 +13,11 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(UserDetail $user_detail)
     {
-        //
+        $user_data = $user_detail->userInfo();
+
+        return view('user', ['user_data' => $user_data]);
     }
 
     /**
@@ -44,11 +47,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show()
     {
-        $mypage = $user->userInfo();
-        dd($mypage);
-        return view('layouts.mypage', ['mypage' => $mypage]);
+        //
     }
 
     /**

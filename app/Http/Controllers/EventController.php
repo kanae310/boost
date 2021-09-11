@@ -28,7 +28,7 @@ class EventController extends Controller
 
         return view('index', compact('category_show'));
     }
-  
+
     /**
      * Show the form for creating a new resource.
      *
@@ -36,7 +36,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        view('event.create');
     }
 
     /**
@@ -45,9 +45,11 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Event $event)
     {
-        //
+        $event->eventStore($request);
+
+        return 0;
     }
 
     /**

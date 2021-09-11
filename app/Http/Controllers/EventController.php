@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Event;
 
 class EventController extends Controller
 {
@@ -11,9 +12,12 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function detail(Event $event)
     {
-        //
+        $event_id = 1;
+        $event_detail = $event->eventDetail($event_id);
+        // dd($event_detail);
+        return view('detail', compact('event_detail'));
     }
 
     /**

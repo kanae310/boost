@@ -14,10 +14,11 @@ class CreateUserDetailsTable extends Migration
     public function up()
     {
         Schema::create('user_details', function (Blueprint $table) {
-            $table->user_detail_id();
-            $table->char('birthday', 225);
-            $table->char('university_code', 225);
-            $table->char('profile_img', 225);
+            $table->bigIncrements('user_detail_id');
+            $table->boolean('gender')->nullable;
+            $table->char('birthday', 255)->nullable;
+            $table->char('university_code', 255);
+            $table->char('profile_img', 255);
             $table->timestamps();
         });
     }

@@ -14,7 +14,9 @@ class CreateUniversitiesTable extends Migration
     public function up()
     {
         Schema::create('universities', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('university_id');
+            $table->integer('prefectures');
+            $table->char('university_name', 255);
             $table->timestamps();
         });
     }

@@ -14,8 +14,11 @@ class CreateApplicationsTable extends Migration
     public function up()
     {
         Schema::create('applications', function (Blueprint $table) {
-            $table->id();
+            $table->bigInteger('user_id');
+            $table->bigInteger('event_id');
             $table->timestamps();
+
+            $table->unique(['user_id', 'event_id']);
         });
     }
 

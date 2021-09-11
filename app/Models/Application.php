@@ -63,4 +63,19 @@ class Application extends Model
         dd($applied_show);
         return $applied_show;
     }
+
+    // 投稿したイベント一覧
+    public function postShow()
+    {
+        $user_id = Auth::id();
+
+        $post_show = DB::table('events')
+                ->join('users', 'host_user_id', '=', 'id')
+                ->join('event_actives', 'event_id', '=', 'event_active_id')
+                ->select('event_id', 'event_name', 'application_period', 'location', 'host_user_id', 'category_id')
+                ->where('id', '=', $user_id)
+                ->get();
+        dd($post_show);
+        return $post_show;
+    }
 }

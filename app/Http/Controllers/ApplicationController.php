@@ -71,4 +71,12 @@ class ApplicationController extends Controller
         return view('applied_show', ['applied_show' => $applied_show]);
 
     }
+
+    public function postShow(Application $application)
+    {
+        $post_show = $application->postShow();
+
+        return view('post_show', ['post_show' => $post_show]);
+
+    }
 }

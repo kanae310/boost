@@ -20,7 +20,7 @@ class EventSeeder extends Seeder
             [
                 'event_id' => 1,
                 'event_name' => 'イベント1',
-                'explain' => 'イベント1の説明',
+                'description' => 'イベント1の説明',
                 'application_period' => '2021-09-11',
                 'start_time' => '2021-09-12 11:00:00',
                 'end_time' => '2021-09-12 13:00:00',
@@ -33,7 +33,7 @@ class EventSeeder extends Seeder
             [
                 'event_id' => 2,
                 'event_name' => 'イベント2',
-                'explain' => 'イベント2の説明',
+                'description' => 'イベント2の説明',
                 'application_period' => '2021-09-12',
                 'start_time' => '2021-09-12 11:00:00',
                 'end_time' => '2021-09-12 13:00:00',
@@ -46,7 +46,7 @@ class EventSeeder extends Seeder
             [
                 'event_id' => 3,
                 'event_name' => 'イベント3',
-                'explain' => 'イベント3の説明',
+                'description' => 'イベント3の説明',
                 'application_period' => '2021-09-13',
                 'start_time' => '2021-09-12 11:00:00',
                 'end_time' => '2021-09-12 13:00:00',
@@ -59,7 +59,7 @@ class EventSeeder extends Seeder
             [
                 'event_id' => 4,
                 'event_name' => 'イベント4',
-                'explain' => 'イベント4の説明',
+                'description' => 'イベント4の説明',
                 'application_period' => '2021-09-14',
                 'start_time' => '2021-09-12 11:00:00',
                 'end_time' => '2021-09-12 13:00:00',
@@ -72,7 +72,7 @@ class EventSeeder extends Seeder
             [
                 'event_id' => 5,
                 'event_name' => 'イベント5',
-                'explain' => 'イベント5の説明',
+                'description' => 'イベント5の説明',
                 'application_period' => '2021-09-15',
                 'start_time' => '2021-09-12 11:00:00',
                 'end_time' => '2021-09-12 13:00:00',
@@ -86,7 +86,7 @@ class EventSeeder extends Seeder
             [
                 'event_id' => 6,
                 'event_name' => 'イベント6',
-                'explain' => 'イベント6の説明',
+                'description' => 'イベント6の説明',
                 'application_period' => '2021-09-11',
                 'start_time' => '2021-09-12 15:00:00',
                 'end_time' => '2021-09-12 17:00:00',
@@ -99,7 +99,7 @@ class EventSeeder extends Seeder
             [
                 'event_id' => 7,
                 'event_name' => 'イベント7',
-                'explain' => 'イベント7の説明',
+                'description' => 'イベント7の説明',
                 'application_period' => '2021-09-12',
                 'start_time' => '2021-09-12 13:00:00',
                 'end_time' => '2021-09-12 15:00:00',
@@ -112,7 +112,7 @@ class EventSeeder extends Seeder
             [
                 'event_id' => 8,
                 'event_name' => 'イベント8',
-                'explain' => 'イベント8の説明',
+                'description' => 'イベント8の説明',
                 'application_period' => '2021-09-13',
                 'start_time' => '2021-09-12 13:00:00',
                 'end_time' => '2021-09-12 15:00:00',
@@ -125,7 +125,7 @@ class EventSeeder extends Seeder
             [
                 'event_id' => 9,
                 'event_name' => 'イベント9',
-                'explain' => 'イベント9の説明',
+                'description' => 'イベント9の説明',
                 'application_period' => '2021-09-14',
                 'start_time' => '2021-09-12 13:00:00',
                 'end_time' => '2021-09-12 15:00:00',
@@ -138,7 +138,7 @@ class EventSeeder extends Seeder
             [
                 'event_id' => 10,
                 'event_name' => 'イベント10',
-                'explain' => 'イベント10の説明',
+                'description' => 'イベント10の説明',
                 'application_period' => '2021-09-15',
                 'start_time' => '2021-09-12 13:00:00',
                 'end_time' => '2021-09-12 15:00:00',

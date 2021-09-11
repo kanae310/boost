@@ -29,7 +29,7 @@
         <p>終了日時　{{$event_detail['end_time']}}</p>
         <p>開催場所　{{$event_detail['location']}}</p>
         <p>募集期間　{{$event_detail['application_period']}}</p>
-        <p>イベント説明　{{$event_detail['explain']}}</p>
+        <p>イベント説明　{{$event_detail['description']}}</p>
         <p>Discord URL　{{$event_detail['discord_url']}}</p>
       </div>
       <form action="" method="">

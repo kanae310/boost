@@ -13,7 +13,7 @@ class Event extends Model
     protected $fillable = [
         'event_id',
         'event_name',
-        'explain',
+        'description',
         'application_period',
         'start_time',
         'end_time',
@@ -69,7 +69,7 @@ class Event extends Model
         $event_detail = DB::table('events')
                             ->join('event_actives', 'event_id', '=', 'event_active_id')
                             ->join('users', 'events.host_user_id', '=', 'users.id')
-                            ->select('event_id', 'event_name', 'start_time', 'end_time', 'location', 'category_id', 'application_period', 'explain', 'events.host_user_id', 'user_name', 'discord_url')
+                            ->select('event_id', 'event_name', 'start_time', 'end_time', 'location', 'category_id', 'application_period', 'description', 'events.host_user_id', 'user_name', 'discord_url')
                             ->where('event_id', '=', $event_id)
                             ->get();
         return $event_detail;

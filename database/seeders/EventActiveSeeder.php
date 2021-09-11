@@ -17,17 +17,31 @@ class EventActiveSeeder extends Seeder
         DB::table('event_actives')->truncate();
 
         DB::table('event_actives')->insert([
-            'event_active_id' => 1,
-        ],
-        [
-            'event_active_id' => 2,
-        ],
-        [
-            'event_active_id' => 4,
-        ],
-        [
-            'event_active_id' => 5,
-        ],
+            [
+                'event_active_id' => 1,
+            ],
+            [
+                'event_active_id' => 2,
+            ],
+            [
+                'event_active_id' => 4,
+            ],
+            [
+                'event_active_id' => 5,
+            ],
+            [
+                'event_active_id' => 6,
+            ],
+            [
+                'event_active_id' => 7,
+            ],
+            [
+                'event_active_id' => 8,
+            ],
+            [
+                'event_active_id' => 10,
+            ],
+        ]
     );
     }
 }

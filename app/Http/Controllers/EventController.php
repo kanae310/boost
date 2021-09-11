@@ -20,6 +20,15 @@ class EventController extends Controller
          $return_event_detail =  json_decode(json_encode($event_detail[0]), true);
          return view('detail',['event_detail'=>$return_event_detail]);
      }
+
+    public function categoryShow(Event $event)
+    {
+        $category_show = $event->categoryShow();
+        dd($category_show);
+
+        return view('index', compact('category_show'));
+    }
+  
     /**
      * Show the form for creating a new resource.
      *
@@ -47,9 +56,11 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($request = null, Event $event)
     {
-        //
+        $event_show = $event->eventShow($request);
+        dd($event_show);
+        return view('event.show', compact('event_show'));
     }
 
     /**

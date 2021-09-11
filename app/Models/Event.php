@@ -19,7 +19,7 @@ class Event extends Model
         'end_time',
         'location',
         'category_id',
-        'user_id',
+        'host_user_id',
         'event_active_id',
         // 'event_img',
         'discord_url',
@@ -68,7 +68,7 @@ class Event extends Model
     {
         $event_detail = DB::table('events')
                             ->join('event_actives', 'event_id', '=', 'event_active_id')
-                            ->join('users', 'events.host_user_id', '=', 'users.user_id')
+                            ->join('users', 'events.host_user_id', '=', 'users.id')
                             ->select('event_id', 'event_name', 'start_time', 'end_time', 'location', 'category_id', 'application_period', 'explain', 'events.host_user_id', 'user_name', 'discord_url')
                             ->where('event_id', '=', $event_id)
                             ->get();

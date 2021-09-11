@@ -24,5 +24,6 @@ Route::get('/event/detail/{event_id}', 'EventController@detail')->middleware(['a
 Route::get('/event', 'EventController@show')->middleware(['auth'])->name('user');
 Route::get('/event/{category_id}', 'EventController@categoryShow')->middleware(['auth'])->name('user');
 Route::get('/category', 'EventController@categoryShow')->middleware(['auth'])->name('user');
+Route::get('/event/apply/{event_id}', 'ApplicationController@store')->middleware(['auth'])->name('user');
 
 require __DIR__ . '/auth.php';

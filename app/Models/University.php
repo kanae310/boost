@@ -14,4 +14,9 @@ class University extends Model
         'prefectures',
         'university_name',
     ];
+
+    public function user_detail()
+    {
+        return $this->hasOne('App\UserDetails');
+    }
 }

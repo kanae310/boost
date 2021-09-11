@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
+use App\Models\EventActive;
 
 class EventController extends Controller
 {
@@ -28,7 +29,7 @@ class EventController extends Controller
 
         return view('index', compact('category_show'));
     }
-  
+
     /**
      * Show the form for creating a new resource.
      *
@@ -36,7 +37,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        view('event.create');
     }
 
     /**
@@ -45,9 +46,11 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Event $event)
     {
-        //
+        $event->eventStore($request);
+
+        return 0;
     }
 
     /**
@@ -94,8 +97,8 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($event_id, EventActive $event_active)
     {
-        //
+        $event_active->eventDelete($event_id);
     }
 }

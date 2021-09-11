@@ -15,7 +15,7 @@ class CreateUniversitiesTable extends Migration
     {
         Schema::create('universities', function (Blueprint $table) {
             $table->bigIncrements('university_id');
-            $table->integer('prefectures');
+            $table->char('prefectures', 255);
             $table->char('university_name', 255);
             $table->timestamps();
         });

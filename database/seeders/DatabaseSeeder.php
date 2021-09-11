@@ -18,6 +18,9 @@ class DatabaseSeeder extends Seeder
             EventActiveSeeder::class,
             EventSeeder::class,
             UserSeeder::class,
+            UserDetailSeeder::class,
+            UniversitySeeder::class,
+            ApplicationSeeder::class,
         ]);
     }
 }

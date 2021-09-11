@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class Event extends Model
 {
@@ -20,14 +21,13 @@ class Event extends Model
         'location',
         'category_id',
         'host_user_id',
-        'event_active_id',
         // 'event_img',
         'discord_url',
     ];
 
     public function event_active()
     {
-        return $this->hasOne('App\EventActive');
+        return $this->hasOne('App\EventActive', 'event_active_id');
     }
 
     public function category()
@@ -78,5 +78,28 @@ class Event extends Model
                             ->where('event_id', '=', $event_id)
                             ->get();
         return $event_detail;
+    }
+
+    public function eventStore($event_data)
+    {
+        $user_id = Auth::id();
+
+        $event_id = DB::table('events')->insertGetId([
+            'event_name' => $event_data['event_name'],
+            'description' => $event_data['description'],
+            'application_period' => $event_data['application_period'],
+            'start_time' => $event_data['start_time'],
+            'end_time' => $event_data['end_time'],
+            'location' => $event_data['location'],
+            'category_id' => $event_data['category_id'],
+            'host_user_id' => $user_id,
+            'discord_url' => $event_data['discord_url'],
+        ]);
+
+        $event_detail = DB::table('event_actives')->insertGetId([
+            'event_active_id' => $event_id,
+        ]);
+
+        return 0;
     }
 }

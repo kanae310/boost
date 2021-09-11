@@ -35,6 +35,11 @@ class Event extends Model
         return $this->belongsTo('App\EventActive');
     }
 
+    public function application()
+    {
+        return $this->hasMany('App\Application');
+    }
+
     public function categoryShow()
     {
         $category_show = DB::table('categories')

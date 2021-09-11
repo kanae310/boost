@@ -63,4 +63,12 @@ class ApplicationController extends Controller
     {
         //
     }
+
+    public function appliedShow(Application $application)
+    {
+        $applied_show = $application->appliedShow();
+
+        return view('applied_show', ['applied_show' => $applied_show]);
+
+    }
 }

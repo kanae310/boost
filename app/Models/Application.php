@@ -44,4 +44,23 @@ class Application extends Model
 
         return $res_data;
     }
+
+    // 申し込んだイベント一覧
+    public function appliedShow()
+    {
+        $user_id = Auth::id();
+        $now = date("Y-m-d H:i:s");
+
+        $applied_show = DB::table('applications')
+                ->join('events', 'events.event_id', '=', 'applications.event_id')
+                ->join('event_actives', 'events.event_id', '=', 'event_active_id')
+                ->join('users', 'id', '=', 'user_id')
+                ->select('events.event_id', 'event_name', 'application_period', 'location', 'host_user_id', 'category_id')
+                ->where('id', '=', $user_id)
+                ->where('end_time', '>', $now)
+                ->get();
+
+        dd($applied_show);
+        return $applied_show;
+    }
 }

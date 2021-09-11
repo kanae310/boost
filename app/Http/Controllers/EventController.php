@@ -12,6 +12,14 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     public function detail($request, Event $event)
+     {
+         $event_id = $request;
+         $event_detail = $event->eventDetail($event_id);
+         $event_detail->toArray();
+         $return_event_detail =  json_decode(json_encode($event_detail[0]), true);
+         return view('detail',['event_detail'=>$return_event_detail]);
+     }
 
     public function categoryShow(Event $event)
     {
@@ -20,15 +28,7 @@ class EventController extends Controller
 
         return view('index', compact('category_show'));
     }
-
-    public function detail(Event $event)
-    {
-        $event_id = 1;
-        $event_detail = $event->eventDetail($event_id);
-        dd($event_detail);
-        return view('event.detail', compact('event_detail'));
-    }
-
+  
     /**
      * Show the form for creating a new resource.
      *

@@ -20,3 +20,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HelloController@index');
 Route::get('/user', 'HelloController@user');
 Route::get('/event/detail', 'EventController@detail');
+Route::get('/event/show', 'EventController@show');

@@ -59,8 +59,10 @@ class EventController extends Controller
     public function show($request = null, Event $event)
     {
         $event_show = $event->eventShow($request);
-        dd($event_show);
-        return view('event.show', compact('event_show'));
+        // dd($event_show);
+        $event_show = $event_show -> toJson();
+        $return_event_show = json_decode($event_show, true);
+        return view('event_show', ['event_show'=>$return_event_show]);
     }
 
     /**

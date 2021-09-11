@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
+use App\Models\EventActive;
 
 class EventController extends Controller
 {
@@ -96,8 +97,8 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($event_id, EventActive $event_active)
     {
-        //
+        $event_active->eventDelete($event_id);
     }
 }

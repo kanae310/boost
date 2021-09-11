@@ -32,4 +32,5 @@ Route::get('/user/event/post-show', 'ApplicationController@postShow')->middlewar
 Route::get('/user/event/past-applied', 'ApplicationController@pastAppliedShow')->middleware(['auth'])->name('user');
 Route::get('/event/create', 'EventController@create')->middleware(['auth'])->name('user');
 Route::post('/event', 'EventController@store')->middleware(['auth'])->name('user');
+Route::delete('/event', 'EventController@delete')->middleware(['auth'])->name('user');
 require __DIR__ . '/auth.php';

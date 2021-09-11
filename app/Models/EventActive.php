@@ -22,6 +22,7 @@ class EventActive extends Model
     public function eventDelete($event_id)
     {
         DB::table('event_actives')->where('event_active_id', '=', $event_id)->delete();
+
         return 0;
     }
 }

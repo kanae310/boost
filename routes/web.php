@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HelloController@index');
+Route::get('/', 'EventController@show')->middleware(['auth'])->name('user');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -22,7 +22,7 @@ Route::get('/dashboard', function () {
 
 Route::get('/user', 'UserController@index')->middleware(['auth'])->name('user');
 Route::get('/event/detail/{event_id}', 'EventController@detail')->middleware(['auth'])->name('user');
-Route::get('/event/{category_id?}', 'EventController@show')->middleware(['auth'])->name('user');
+Route::get('/event/category/{category_id}', 'EventController@show')->middleware(['auth'])->name('user');
 Route::get('/category', 'EventController@categoryShow')->middleware(['auth'])->name('user');
 Route::get('/event/apply/{event_id}', 'ApplicationController@store')->middleware(['auth'])->name('user');
 
@@ -32,4 +32,5 @@ Route::get('/user/event/past-applied', 'ApplicationController@pastAppliedShow')-
 Route::get('/event/create', 'EventController@create')->middleware(['auth'])->name('user');
 Route::post('/event', 'EventController@store')->middleware(['auth'])->name('user');
 Route::delete('/event', 'EventController@delete')->middleware(['auth'])->name('user');
+
 require __DIR__ . '/auth.php';

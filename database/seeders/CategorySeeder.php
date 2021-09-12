@@ -35,7 +35,7 @@ class CategorySeeder extends Seeder
             ],
             [
                 'category_id' => 5,
-                'category_name' => '地域限定',
+                'category_name' => 'その他',
             ],
         ]
     );

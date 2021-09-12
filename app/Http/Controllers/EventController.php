@@ -39,7 +39,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        view('event.create');
+        return view('event_create');
     }
 
     /**
@@ -50,9 +50,9 @@ class EventController extends Controller
      */
     public function store(Request $request, Event $event)
     {
-        $event->eventStore($request);
+        $res_event_id = $event->eventStore($request);
 
-        return 0;
+        return redirect('/event/detail/' . $res_event_id);
     }
 
     /**

@@ -27,6 +27,7 @@
                     style="font-size:30pt;font-weight:bold; text-decoration:none;">Lian</a>
                     <a class="nav-contents" href="/user">マイページ</a>
                     <a class="nav-contents" href="/event/category">カテゴリ一覧</a>
+                    <a class="nav-contents" href="/event/create">イベント作成</a>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
 

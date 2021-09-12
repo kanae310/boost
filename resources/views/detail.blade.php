@@ -13,6 +13,7 @@
 <!-- end -->
 
 <div>
+    <img src="{{$event_detail['event_img']}}">
     <p style="font-size:15pt;font-weight:bold;">{{$event_detail['event_name']}}</p>
     <p>開始日時　{{$event_detail['start_time']}}</p>
     <p>終了日時　{{$event_detail['end_time']}}</p>

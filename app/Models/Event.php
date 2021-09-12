@@ -55,14 +55,18 @@ class Event extends Model
         if ($category_id == null) {
             $event_show = DB::table('events')
                         ->join('event_actives', 'event_id', '=', 'event_active_id')
-                        ->select('event_id', 'event_name', 'application_period', 'location', 'host_user_id','event_img', 'category_id')
+                        ->join('categories', 'events.category_id', '=', 'categories.category_id')
+                        ->join('users', 'id', '=', 'host_user_id')
+                        ->select('event_id', 'event_name', 'application_period', 'location', 'host_user_id','event_img', 'category_name', 'start_time', 'end_time', 'user_name')
                         ->get();
         }
         else {
             $event_show = DB::table('events')
                         ->join('event_actives', 'event_id', '=', 'event_active_id')
-                        ->select('event_id', 'event_name', 'application_period', 'location', 'host_user_id','event_img', 'category_id')
-                        ->where('category_id', '=', $category_id)
+                        ->join('categories', 'events.category_id', '=', 'categories.category_id')
+                        ->join('users', 'id', '=', 'host_user_id')
+                        ->select('event_id', 'event_name', 'application_period', 'location', 'host_user_id','event_img', 'category_name', 'start_time', 'end_time', 'user_name')
+                        ->where('events.category_id', '=', $category_id)
                         ->get();
         }
 

@@ -18,7 +18,7 @@ class CreateUserDetailsTable extends Migration
             $table->char('gender',255)->nullable;
             $table->date('birthday')->nullable;
             $table->integer('university_id')->nullable;
-            $table->char('profile_img', 255)->nullable;
+            $table->binary('profile_img')->nullable;
             $table->timestamps();
         });
     }

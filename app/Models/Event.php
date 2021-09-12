@@ -21,7 +21,7 @@ class Event extends Model
         'location',
         'category_id',
         'host_user_id',
-        // 'event_img',
+        'event_img',
         'discord_url',
     ];
 
@@ -117,6 +117,7 @@ class Event extends Model
             'category_id' => $event_data['category_id'],
             'host_user_id' => $user_id,
             'discord_url' => $event_data['discord_url'],
+            'event_img' => $event_data['event_img'],
         ]);
 
         DB::table('event_actives')->insertGetId([

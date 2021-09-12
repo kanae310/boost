@@ -26,7 +26,7 @@ class EventSeeder extends Seeder
                 'end_time' => '2021-09-12 13:00:00',
                 'location' => 'オンライン',
                 'category_id' => 1,
-                'host_user_id' => 1,
+                'host_user_id' => 2,
                 'discord_url' => 'hoge1@hoge',
                 'event_img' => 'https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
                 'created_at' => '2021-09-10 11:00:00',

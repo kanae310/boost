@@ -59,7 +59,6 @@ class Application extends Model
                 ->where('end_time', '>', $now)
                 ->get();
 
-        dd($applied_show);
         return $applied_show;
     }
 

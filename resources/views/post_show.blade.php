@@ -1,5 +1,6 @@
 @extends('common.layout')
 
 @section('index')
-<p>TOP画面</p>
+<p>投稿したイベント一覧</p>
+
 @endsection

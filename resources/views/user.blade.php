@@ -9,8 +9,8 @@
         <p>大学名　{{$user_data['university_name']}}</p>
     </div>
     <div>
-        <a href="/user/apply/list">申し込んだイベント一覧</a><br>
-        <a href="/user/create/list">投稿したイベント一覧</a><br>
-        <a href="/user/join/list">過去に参加したイベント一覧</a>
+        <a href="/user/event/applied">申し込んだイベント一覧</a><br>
+        <a href="/user/event/post-show">投稿したイベント一覧</a><br>
+        <a href="/user/event/past-applied">過去に参加したイベント一覧</a>
     </div>
 @endsection

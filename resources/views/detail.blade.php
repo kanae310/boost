@@ -1,6 +1,16 @@
 @extends('common.layout')
 
 @section('index')
+<!-- イベントを作成して、詳細画面にリダイレクトした時に表示するアラート -->
+    @if(isset($_GET['link']))
+        {{var_dump($_GET['link']);}}
+        @if ($_GET['link'] == 'eventStore')
+        <div class="alert" role="alert" data-mdb-color="primary">
+            作成完了しました。
+        </div>
+        @endif
+    @endif
+<!-- end -->
 
 <div>
     <p style="font-size:15pt;font-weight:bold;">{{$event_detail['event_name']}}</p>
@@ -12,6 +22,6 @@
     <p>Discord URL　<a href="{{$event_detail['discord_url']}}">{{$event_detail['discord_url']}}</a></p>
 </div>
 <div>
-    <a href="/event/apply/{{$event_detail['event_id']}}">このイベントに申し込む</a>
+    <a href="/event/detail/{{$event_detail['event_id']}}/apply">このイベントに申し込む</a>
 </div>
 @endsection

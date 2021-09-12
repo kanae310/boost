@@ -13,14 +13,17 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-     public function detail($request, Event $event)
-     {
-         $event_id = $request;
-         $event_detail = $event->eventDetail($event_id);
-         $event_detail = $event_detail->toJson();
-         $return_event_detail =  json_decode($event_detail,true);
-         return view('detail',['event_detail'=>$return_event_detail[0]]);
-     }
+
+    public function detail($request, Event $event)
+    {
+        $event_id = $request;
+        $event_detail = $event->eventDetail($event_id);
+        $event_detail_data = $event_detail[0];
+        $judge_already_applied = $event_detail[1];
+        $event_detail_data = $event_detail_data[0]->toJson();
+        $return_event_detail =  json_decode($event_detail_data,true);
+        return view('detail',['event_detail'=>$return_event_detail[0], 'applied_flag' => $judge_already_applied]);
+    }
 
     public function categoryShow(Event $event)
     {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\UserDetail;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -33,6 +34,7 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -45,7 +47,16 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        $user_detail = UserDetail::create([
+            'gender' => $request->gender,
+            'birthday' => $request->birthday,
+            'university_id' => $request->university_id,
+            'profile_img' => $request->profile_img,
+        ]);
+
         event(new Registered($user));
+
+        event(new Registered($user_detail));
 
         Auth::login($user);
 

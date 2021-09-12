@@ -16,7 +16,7 @@ class UserDetail extends Model
         'gender',
         'birthday',
         'university_id',
-        'profile_image',
+        'profile_img',
     ];
 
     public function user()

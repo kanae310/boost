@@ -36,11 +36,10 @@ class Application extends Model
             'created_at' => now(),
             'updated_at' => now(),
         ]);
-
         $res_data = DB::table('events')
-                ->select('discord_url')
-                ->where('event_id', '=', $event_id)
-                ->get();
+        ->select('discord_url')
+        ->where('event_id', '=', $event_id)
+        ->get();
 
         return $res_data;
     }

@@ -3,6 +3,7 @@
 @section('index')
     <div>
         <p style="font-size:15pt;font-weight:bold;">マイページ</p>
+        <img src="{{$user_data['profile_img']}}">
         <p>名前　{{$user_data['user_name']}}</p>
         <p>メールアドレス　{{$user_data['email']}}</p>
         <p>生年月日　{{$user_data['birthday']}}</p>

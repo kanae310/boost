@@ -72,12 +72,26 @@ class Event extends Model
     public function eventDetail(int $event_id)
     {
         $event_detail = DB::table('events')
-                            ->join('event_actives', 'event_id', '=', 'event_active_id')
-                            ->join('users', 'events.host_user_id', '=', 'users.id')
-                            ->select('event_id', 'event_name', 'start_time', 'end_time', 'location', 'category_id', 'application_period', 'description', 'events.host_user_id', 'user_name', 'discord_url')
-                            ->where('event_id', '=', $event_id)
-                            ->get();
-        return $event_detail;
+                        ->join('event_actives', 'event_id', '=', 'event_active_id')
+                        ->join('users', 'events.host_user_id', '=', 'users.id')
+                        ->select('event_id', 'event_name', 'start_time', 'end_time', 'location', 'category_id', 'application_period', 'description', 'events.host_user_id', 'user_name', 'discord_url')
+                        ->where('event_id', '=', $event_id)
+                        ->get();
+
+        $user_id = Auth::id();
+
+        if (DB::table('applications')
+            ->join('users', 'user_id', '=', 'id')
+            ->join('events', 'applications.event_id', '=', 'events.event_id')
+            ->where('user_id', '=', $user_id)
+            ->where('applications.event_id', '=', $event_id)
+            ->exists())
+        {
+            $judge_already_applied = 1;
+        } else {
+            $judge_already_applied = 0;
+        }
+        return array($event_detail, $judge_already_applied);
     }
 
     public function eventStore($event_data)

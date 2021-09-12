@@ -1,0 +1,14 @@
+body{
+    font-family: 'M PLUS 1p', sans-serif;
+}
+/*ボタンのクラスはこれでお願いします*/
+.btn-primary{
+    color: #fff;
+    background-color: #00ffc4;
+    border-color: #00ff9d;
+}
+.btn-secondary{
+    color: #fff;
+    background-color: #ffa200;
+    border-color: #ffa200;
+}

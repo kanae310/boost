@@ -36,7 +36,7 @@ class UserDetail extends Model
         $user_info = DB::table('user_details')
                         ->join('users', 'user_detail_id', '=', 'id')
                         ->join('universities', 'user_details.university_id', '=', 'universities.university_id')
-                        ->select('id', 'user_name', 'email', 'gender', 'birthday', 'user_details.university_id', 'university_name')
+                        ->select('id', 'user_name', 'email', 'gender', 'birthday', 'user_details.university_id', 'university_name','profile_img')
                         ->where('id', '=', $user_id)
                         ->get();
 

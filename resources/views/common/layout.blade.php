@@ -46,7 +46,6 @@
                 <a class="nav-contents" href="/event" style="font-size:30pt;font-weight:bold; text-decoration:none;">Lian</a>
                 <a class="nav-contents" href="/category">カテゴリ一覧</a>
                 <a class="nav-contents" href="/login">ログイン</a>
-                <a class="nav-contents" href="/event/create">イベント作成</a>
             </div>
         </nav>
         <main class="py-4">

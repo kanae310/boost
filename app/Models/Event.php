@@ -55,13 +55,13 @@ class Event extends Model
         if ($category_id == null) {
             $event_show = DB::table('events')
                         ->join('event_actives', 'event_id', '=', 'event_active_id')
-                        ->select('event_id', 'event_name', 'application_period', 'location', 'host_user_id', 'category_id')
+                        ->select('event_id', 'event_name', 'application_period', 'location', 'host_user_id','event_img', 'category_id')
                         ->get();
         }
         else {
             $event_show = DB::table('events')
                         ->join('event_actives', 'event_id', '=', 'event_active_id')
-                        ->select('event_id', 'event_name', 'application_period', 'location', 'host_user_id', 'category_id')
+                        ->select('event_id', 'event_name', 'application_period', 'location', 'host_user_id','event_img', 'category_id')
                         ->where('category_id', '=', $category_id)
                         ->get();
         }
@@ -74,7 +74,7 @@ class Event extends Model
         $event_detail = DB::table('events')
                         ->join('event_actives', 'event_id', '=', 'event_active_id')
                         ->join('users', 'events.host_user_id', '=', 'users.id')
-                        ->select('event_id', 'event_name', 'start_time', 'end_time', 'location', 'category_id', 'application_period', 'description', 'events.host_user_id', 'user_name', 'discord_url')
+                        ->select('event_id', 'event_name', 'start_time', 'end_time', 'location', 'category_id', 'application_period', 'description', 'events.host_user_id', 'user_name', 'discord_url','event_img')
                         ->where('event_id', '=', $event_id)
                         ->get();
 

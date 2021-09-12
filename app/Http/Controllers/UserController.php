@@ -16,8 +16,9 @@ class UserController extends Controller
     public function index(UserDetail $user_detail)
     {
         $user_data = $user_detail->userInfo();
-
-        return view('user', ['user_data' => $user_data]);
+        $user_data = $user_data->toJson();
+        $return_user_data = json_decode($user_data,true);
+        return view('user', ['user_data' => $return_user_data[0]]);
     }
 
     /**

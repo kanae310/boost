@@ -19,9 +19,17 @@
     <p>開催場所　{{$event_detail['location']}}</p>
     <p>募集期間　{{$event_detail['application_period']}}</p>
     <p>イベント説明　{{$event_detail['description']}}</p>
-    <p>Discord URL　<a href="{{$event_detail['discord_url']}}">{{$event_detail['discord_url']}}</a></p>
+    @if($applied_flag!==0)
+        <p>Discord URL　<a href="{{$event_detail['discord_url']}}">{{$event_detail['discord_url']}}</a></p>
+    @endif
 </div>
 <div>
-    <a href="/event/detail/{{$event_detail['event_id']}}/apply">このイベントに申し込む</a>
+    @if($applied_flag===0)
+        <a href="/event/detail/{{$event_detail['event_id']}}/apply">このイベントに申し込む</a>
+    @elseif($applied_flag===1)
+        <p>すでに申し込みしています</p>
+    @elseif($applied_flag===2)
+        <p>イベントの主催者です</p>
+    @endif
 </div>
 @endsection

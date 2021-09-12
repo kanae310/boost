@@ -37,7 +37,7 @@ class Application extends Model
             'updated_at' => now(),
         ]);
         $res_data = DB::table('events')
-        ->select('discord_url')
+        ->select('discord_url','event_id')
         ->where('event_id', '=', $event_id)
         ->get();
 

@@ -16,7 +16,8 @@ class ApplicationController extends Controller
     public function store(int $event_id, Application $application)
     {
         $res_data = $application->eventApply($event_id);
-        return view('apply_completed', ['res_data'=>$res_data]);
+        $return_res_data = json_decode(json_encode($res_data), true);
+        return view('apply_completed', ['res_data'=>$return_res_data[0]]);
     }
 
     /**

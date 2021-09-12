@@ -35,15 +35,19 @@ Route::get('/event/detail/{event_id}', 'EventController@detail')->middleware(['a
 //応募機能
 Route::get('/event/detail/{event_id}/apply', 'ApplicationController@store')->middleware(['auth'])->name('event.apply');
 
+//応募キャンセル機能
+//未完成、今後実装予定
+// Route::post('/event/detail/{event_id}/cancel', 'ApplicationController@destroy')->middleware(['auth'])->name('event.cancel');
+
 //イベント作成画面
 Route::get('/event/create', 'EventController@create')->middleware(['auth'])->name('event.create');
 
 //イベント投稿画面
 Route::post('/event/store', 'EventController@store')->middleware(['auth'])->name('event.store');
 
-//イベント削除画面
-//未完成のため、今後実装予定。
-// Route::delete('/event/delete{event_id}', 'EventController@delete')->middleware(['auth'])->name('event.delete');
+// イベント削除画面
+//未完成、今後実装予定
+Route::post('/event/detail/{event_id}/delete', 'EventController@destory')->middleware(['auth'])->name('event.delete');
 
 //申し込んだイベント一覧画面
 Route::get('/user/event/applied', 'ApplicationController@appliedShow')->middleware(['auth'])->name('user.applied');

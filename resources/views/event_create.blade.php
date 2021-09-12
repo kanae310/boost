@@ -40,13 +40,9 @@
             </select>
         </div>
         <div>
-            <label for="university_lock">あなたの大学限定にしますか</label>
-            <div>
-                <input id="university_lock_yes" type="radio" name="university_lock" value="1">
-                <label for="university_lock_yes">はい</label>
-                <input id="university_lock_no" type="radio" name="university_lock" value="0">
-                <label for="university_lock_no">いいえ</label>
-            </div>
+            <label for="event_img">イベント画像</label>
+            <input type="url" name="event_img"　value="event_img">
+        </div>
         <div>
             <label for="discord_url">DiscordのURL</label>
             <input type="text" name="discord_url" id="discord_url" required>

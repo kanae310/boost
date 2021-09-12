@@ -81,16 +81,25 @@ class Event extends Model
         $user_id = Auth::id();
 
         if (DB::table('applications')
-            ->join('users', 'user_id', '=', 'id')
             ->join('events', 'applications.event_id', '=', 'events.event_id')
-            ->where('user_id', '=', $user_id)
+            ->where('host_user_id', '=', $user_id)
             ->where('applications.event_id', '=', $event_id)
             ->exists())
+        {
+            $judge_already_applied = 2;
+        }
+        else if (DB::table('applications')
+                ->join('users', 'user_id', '=', 'id')
+                ->join('events', 'applications.event_id', '=', 'events.event_id')
+                ->where('user_id', '=', $user_id)
+                ->where('applications.event_id', '=', $event_id)
+                ->exists())
         {
             $judge_already_applied = 1;
         } else {
             $judge_already_applied = 0;
         }
+
         return array($event_detail, $judge_already_applied);
     }
 
@@ -110,10 +119,10 @@ class Event extends Model
             'discord_url' => $event_data['discord_url'],
         ]);
 
-        $event_detail = DB::table('event_actives')->insertGetId([
+        DB::table('event_actives')->insertGetId([
             'event_active_id' => $event_id,
         ]);
 
-        return 0;
+        return $event_id;
     }
 }

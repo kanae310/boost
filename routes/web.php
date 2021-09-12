@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HelloController@index');
+Route::get('/', 'EventController@show')->middleware(['auth'])->name('user');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

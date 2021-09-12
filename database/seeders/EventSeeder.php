@@ -28,6 +28,7 @@ class EventSeeder extends Seeder
                 'category_id' => 1,
                 'host_user_id' => 1,
                 'discord_url' => 'hoge1@hoge',
+                'event_img' => 'https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
                 'created_at' => '2021-09-10 11:00:00',
             ],
             [
@@ -41,6 +42,7 @@ class EventSeeder extends Seeder
                 'category_id' => 2,
                 'host_user_id' => 2,
                 'discord_url' => 'hoge2@hoge',
+                'event_img' => 'https://images.pexels.com/photos/868483/pexels-photo-868483.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
                 'created_at' => '2021-09-10 12:00:00',
             ],
             [
@@ -54,6 +56,7 @@ class EventSeeder extends Seeder
                 'category_id' => 3,
                 'host_user_id' => 3,
                 'discord_url' => 'hoge3@hoge',
+                'event_img' => 'https://images.pexels.com/photos/3621104/pexels-photo-3621104.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
                 'created_at' => '2021-09-10 13:00:00',
             ],
             [
@@ -67,6 +70,7 @@ class EventSeeder extends Seeder
                 'category_id' => 3,
                 'host_user_id' => 3,
                 'discord_url' => 'hoge4@hoge',
+                'event_img' => 'https://images.pexels.com/photos/6203512/pexels-photo-6203512.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
                 'created_at' => '2021-09-10 14:00:00',
             ],
             [
@@ -80,6 +84,7 @@ class EventSeeder extends Seeder
                 'category_id' => 4,
                 'host_user_id' => 5,
                 'discord_url' => 'hoge5@hoge',
+                'event_img' => 'https://images.pexels.com/photos/4778662/pexels-photo-4778662.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
                 'created_at' => '2021-09-10 15:00:00',
 
             ],
@@ -94,6 +99,7 @@ class EventSeeder extends Seeder
                 'category_id' => 1,
                 'host_user_id' => 2,
                 'discord_url' => 'hoge6@hoge',
+                'event_img' => 'https://images.pexels.com/photos/4691555/pexels-photo-4691555.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
                 'created_at' => '2021-09-10 16:00:00',
             ],
             [
@@ -107,6 +113,7 @@ class EventSeeder extends Seeder
                 'category_id' => 2,
                 'host_user_id' => 4,
                 'discord_url' => 'hoge7@hoge',
+                'event_img' => 'https://images.pexels.com/photos/7900283/pexels-photo-7900283.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
                 'created_at' => '2021-09-10 17:00:00',
             ],
             [
@@ -120,6 +127,7 @@ class EventSeeder extends Seeder
                 'category_id' => 5,
                 'host_user_id' => 3,
                 'discord_url' => 'hoge8@hoge',
+                'event_img' => 'https://images.pexels.com/photos/544961/pexels-photo-544961.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
                 'created_at' => '2021-09-10 18:00:00',
             ],
             [
@@ -133,6 +141,7 @@ class EventSeeder extends Seeder
                 'category_id' => 4,
                 'host_user_id' => 7,
                 'discord_url' => 'hoge9@hoge',
+                'event_img' => 'https://images.pexels.com/photos/9158795/pexels-photo-9158795.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
                 'created_at' => '2021-09-10 19:00:00'
             ],
             [
@@ -146,6 +155,7 @@ class EventSeeder extends Seeder
                 'category_id' => 5,
                 'host_user_id' => 5,
                 'discord_url' => 'hoge10@hoge',
+                'event_img' => 'https://images.pexels.com/photos/6925378/pexels-photo-6925378.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
                 'created_at' => '2021-09-10 20:00:00',
             ],
         ]

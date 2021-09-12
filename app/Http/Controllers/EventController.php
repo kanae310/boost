@@ -20,8 +20,7 @@ class EventController extends Controller
         $event_detail = $event->eventDetail($event_id);
         $event_detail_data = $event_detail[0];
         $judge_already_applied = $event_detail[1];
-        $event_detail_data = $event_detail_data[0]->toJson();
-        $return_event_detail =  json_decode($event_detail_data,true);
+        $return_event_detail = json_decode(json_encode($event_detail_data), true);
         return view('detail',['event_detail'=>$return_event_detail[0], 'applied_flag' => $judge_already_applied]);
     }
 

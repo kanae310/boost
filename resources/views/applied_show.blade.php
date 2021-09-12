@@ -1,7 +1,6 @@
 @extends('common.layout')
 
 @section('index')
-
     <div>
         @foreach ($applied_show as $event)
             <div>

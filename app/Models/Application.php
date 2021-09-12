@@ -73,7 +73,7 @@ class Application extends Model
                 ->select('event_id', 'event_name', 'application_period', 'location', 'host_user_id', 'category_id')
                 ->where('id', '=', $user_id)
                 ->get();
-        dd($post_show);
+        // dd($post_show);
         return $post_show;
     }
 
@@ -91,7 +91,7 @@ class Application extends Model
                 ->where('id', '=', $user_id)
                 ->where('end_time', '<', $now)
                 ->get();
-        dd($past_applied_show);
+        // dd($past_applied_show);
         return $past_applied_show;
     }
 }

@@ -14,6 +14,11 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public function index()
+    {
+        return view('index');
+    }
+
     public function detail($request, Event $event)
     {
         $event_id = $request;
@@ -52,7 +57,7 @@ class EventController extends Controller
     {
         $res_event_id = $event->eventStore($request);
 
-        return redirect('/event/detail/' . $res_event_id);
+        return redirect('/event/detail/' . $res_event_id . '?link=eventStore');
     }
 
     /**
@@ -102,5 +107,7 @@ class EventController extends Controller
     public function destroy($event_id, EventActive $event_active)
     {
         $event_active->eventDelete($event_id);
+
+        return ;
     }
 }

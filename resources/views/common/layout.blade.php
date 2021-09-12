@@ -13,21 +13,20 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
 <div id="app">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="nav-contents" href="/event"
-               style="font-size:30pt;font-weight:bold; text-decoration:none;">Lian</a>
             @if (Route::has('login'))
                 @auth
-                    {{-- ここからログイン後--}}
+                {{-- ここからログイン後--}}
+                    <a class="nav-contents" href="/event"
+                    style="font-size:30pt;font-weight:bold; text-decoration:none;">Lian</a>
                     <a class="nav-contents" href="/user">マイページ</a>
-                    <a class="nav-contents" href="/category">カテゴリ一覧</a>
+                    <a class="nav-contents" href="/event/category">カテゴリ一覧</a>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
 
@@ -37,9 +36,10 @@
                             {{ __('Log Out') }}
                         </x-dropdown-link>
                     </form>
-                    {{-- ここまで--}}
+                {{-- ここまで--}}
                 @else
-                    {{--ここからログイン前--}}
+                {{--ここからログイン前--}}
+                    <a class="nav-contents" href="/" style="font-size:30pt;font-weight:bold; text-decoration:none;">Lian</a>
                     <a class="nav-contents" href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log
                         in</a>
 
@@ -47,7 +47,7 @@
                         <a class="nav-contents" href="{{ route('register') }}"
                            class="ml-4 text-sm text-gray-700 underline">Register</a>
                     @endif
-                    {{--ここまで--}}
+                {{--ここまで--}}
                 @endauth
             @endif
         </div>

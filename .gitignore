@@ -13,3 +13,4 @@ yarn-error.log
 /.idea
 /.vscode
 /.docker/mysql/data
+/public/css/.app.css.icloud

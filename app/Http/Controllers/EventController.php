@@ -17,17 +17,17 @@ class EventController extends Controller
      {
          $event_id = $request;
          $event_detail = $event->eventDetail($event_id);
-         $event_detail->toArray();
-         $return_event_detail =  json_decode(json_encode($event_detail[0]), true);
-         return view('detail',['event_detail'=>$return_event_detail]);
+         $event_detail = $event_detail->toJson();
+         $return_event_detail =  json_decode($event_detail,true);
+         return view('detail',['event_detail'=>$return_event_detail[0]]);
      }
 
     public function categoryShow(Event $event)
     {
         $category_show = $event->categoryShow();
-        dd($category_show);
-
-        return view('index', compact('category_show'));
+        $category_show = $category_show->toJson();
+        $return_category_show = json_decode($category_show,true);
+        return view('category', ['category_show'=>$return_category_show]);
     }
 
     /**

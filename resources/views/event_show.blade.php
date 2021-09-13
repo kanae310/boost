@@ -4,7 +4,7 @@
 <!-- イベントを削除して、詳細画面にリダイレクトした時に表示するアラート -->
     @if(isset($_GET['link']))
         @if ($_GET['link'] == 'eventDelete')
-            <div class="alert" role="alert" data-mdb-color="primary">
+            <div class="alert alert-danger" role="alert" data-mdb-color="primary">
                 イベントを削除しました
             </div>
         @endif
@@ -13,7 +13,7 @@
 
 <div>
     @foreach ($event_show as $event)
-        <div class="card mx-auto" style="width: 20rem; margin-bottom: 20px;">
+        <div class="card mx-auto" style="width: 20rem; margin: 10px 0 20px 0;">
             <a href="/event/detail/{{$event['event_id']}}">
                 <img
                 src="{{$event['event_img']}}"

@@ -1,60 +1,86 @@
-body{
+body {
     font-family: 'M PLUS 1p', sans-serif;
+    background-color: #faf9f5;
 }
+
 /*ボタンのクラスはこれでお願いします*/
-.btn-primary{
+.btn-primary {
     color: #fff;
-    background-color: #00ffc4;
-    border-color: #00ff9d;
+    background-color: #8bb4c3;
+    border-color: #8bb4c3;
 }
-.btn-secondary{
+
+.btn-secondary {
     color: #fff;
-    background-color: #ffa200;
-    border-color: #ffa200;
+    background-color: #d4abc8;
+    border-color: #d4abc8;
 }
 .btn-rounded {
     border-radius: 10rem;
 }
 /*ここまでBootstrapのうわがき*/
 
-.top{
-    margin:0 auto;
+.bg-light {
+    background-color: #f7f4e6 !important;
 }
-.top-visual{
+
+.logo {
+    height: 40px;
+}
+
+.top {
+    margin: 0 auto;
+}
+
+.top-visual {
     width: 100%;
     height: 250px;
     text-align: center;
-    background-image: url(../img/top.jpg);
-    background-size: cover;
-    background-position: center;
+    border-bottom: 5px solid #e5e3e3;
+    border-top: 5px solid #e5e3e3;
+    /*background-image: url(../img/top.jpg);*/
+    /*background-size: cover;*/
+    /*background-position: center;*/
 }
-.top-item{
+
+.top-item {
     width: 100%;
     height: 250px;
-    background-color: rgba(0, 0, 0, 0.2);
+    /*background-color: rgba(0, 0, 0, 0.2);*/
     text-align: center;
-    padding-top: 10px;
+    /*padding-top: 10px;*/
 }
-.top-comment{
+
+.top-comment {
     /*font-family: 'Glory', sans-serif;*/
     font-family: 'Allison', cursive;
     color: #7a7a7a;
 }
-.top-image{
-    width:40%;
-    height:100px;
-    margin:20px auto;
+
+.top-comment2 {
+    /*font-family: 'Glory', sans-serif;*/
+    font-family: 'Allison', cursive;
+    font-size: 10px;
+    color: #7a7a7a;
 }
-.top-card{
-    margin:20px 30px;
+
+.top-image {
+    width: 70%;
+    height: 100px;
+    margin: 20px auto;
+}
+
+.top-card {
+    margin: 20px 30px;
     background-color: #f8f2f2;
 }
-.top-card-title{
+
+.top-card-title {
     border-bottom: 8px solid #e5e3e3;
     text-align: center;
     line-height: 0.6;
     margin-bottom: 10px;
-    font-weight:bold;
+    font-weight: bold;
     color: #8793d7;
 }
 

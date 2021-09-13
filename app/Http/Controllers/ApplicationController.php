@@ -72,11 +72,10 @@ class ApplicationController extends Controller
     public function appliedShow(Application $application)
     {
         $applied_show = $application->appliedShow();
-        $applied_show = $applied_show[0]->toJson();
+        $applied_show_data = $applied_show[0];
         $host_user_name = $applied_show[1];
-        $return_applied = json_decode($applied_show,true);
-
-        return view('applied_show', ['applied_show' => $return_applied, 'host_user_id' => $host_user_name]);
+        $return_applied_show = json_decode(json_encode($applied_show_data), true);
+        return view('applied_show', ['applied_show' => $return_applied_show, 'host_user_name' => $host_user_name]);
 
     }
 

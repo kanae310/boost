@@ -27,7 +27,7 @@
                     <p class="card-text" style="margin-bottom: 8px;">終了時間　{{$event['end_time']}}</p>
                     <p class="card-text" style="margin-bottom: 8px;">募集期間　{{$event['application_period']}}</p>
                     <p class="card-text" style="margin-bottom: 8px;">開催場所　{{$event['location']}}</p>
-                    <p class="card-text" style="margin-bottom: 8px;">開催場所　{{$event['category_name']}}</p>
+                    <p class="card-text" style="margin-bottom: 8px;">カテゴリ　{{$event['category_name']}}</p>
                 </div>
             </a>
         </div>

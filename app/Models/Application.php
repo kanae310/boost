@@ -71,14 +71,18 @@ class Application extends Model
                 ->where('end_time', '>', $now)
                 ->get();
 
-        // dd($applied_show[0]->host_user_id);
-        $host_user_name = DB::table('users')
-        ->join('user_details', 'users.id', '=', 'user_detail_id')
-        ->select('user_name')
-        ->where('id', $applied_show[0]->host_user_id)
-        ->get();
-        // dd($host_user_name);
-        return array($applied_show, $host_user_name);
+        $host_user_name_array = array();
+
+        foreach($applied_show as $applied) {
+            $host_user_name = DB::table('users')
+            ->join('user_details', 'users.id', '=', 'user_detail_id')
+            ->select('user_name')
+            ->where('id', $applied->host_user_id)
+            ->get();
+            array_push($host_user_name_array, $host_user_name[0]->user_name);
+        }
+
+        return array($applied_show, $host_user_name_array);
     }
 
     // 投稿したイベント一覧

@@ -72,27 +72,30 @@ class ApplicationController extends Controller
     public function appliedShow(Application $application)
     {
         $applied_show = $application->appliedShow();
-        $applied_show = $applied_show[0]->toJson();
+        $applied_show_data = $applied_show[0];
         $host_user_name = $applied_show[1];
-        $return_applied = json_decode($applied_show,true);
-
-        return view('applied_show', ['applied_show' => $return_applied, 'host_user_id' => $host_user_name]);
+        $return_applied_show = json_decode(json_encode($applied_show_data), true);
+        return view('applied_show', ['applied_show' => $return_applied_show, 'host_user_name' => $host_user_name]);
 
     }
 
     public function postShow(Application $application)
     {
         $post_show = $application->postShow();
+        $return_post_show = json_decode(json_encode($post_show), true);
+        // dd($return_post_show);
 
-        return view('post_show', ['post_show' => $post_show]);
+        return view('post_show', ['post_show' => $return_post_show]);
 
     }
 
     public function pastAppliedShow(Application $application)
     {
         $past_applied_show = $application->pastAppliedShow();
-
-        return view('past_applied_show', ['past_applied_show' => $past_applied_show]);
+        $past_applied_show_data = $past_applied_show[0];
+        $host_user_name = $past_applied_show[1];
+        $return_past_applied_show = json_decode(json_encode($past_applied_show_data), true);
+        return view('past_applied_show', ['past_applied_show' => $return_past_applied_show, 'host_user_name' => $host_user_name]);
 
     }
 }

@@ -71,14 +71,18 @@ class Application extends Model
                 ->where('end_time', '>', $now)
                 ->get();
 
-        // dd($applied_show[0]->host_user_id);
-        $host_user_name = DB::table('users')
-        ->join('user_details', 'users.id', '=', 'user_detail_id')
-        ->select('user_name')
-        ->where('id', $applied_show[0]->host_user_id)
-        ->get();
-        // dd($host_user_name);
-        return array($applied_show, $host_user_name);
+        $host_user_name_array = array();
+
+        foreach($applied_show as $applied) {
+            $host_user_name = DB::table('users')
+            ->join('user_details', 'users.id', '=', 'user_detail_id')
+            ->select('user_name')
+            ->where('id', $applied->host_user_id)
+            ->get();
+            array_push($host_user_name_array, $host_user_name[0]->user_name);
+        }
+
+        return array($applied_show, $host_user_name_array);
     }
 
     // 投稿したイベント一覧
@@ -87,10 +91,11 @@ class Application extends Model
         $user_id = Auth::id();
 
         $post_show = DB::table('events')
-                ->join('users', 'host_user_id', '=', 'id')
+                ->join('users', 'id', '=', 'host_user_id')
                 ->join('event_actives', 'event_id', '=', 'event_active_id')
-                ->select('event_id', 'event_name', 'application_period', 'location', 'host_user_id', 'category_id')
-                ->where('id', '=', $user_id)
+                ->join('categories', 'categories.category_id', '=', 'events.category_id')
+                ->select('events.event_id', 'event_name', 'application_period', 'location', 'events.category_id', 'event_img', 'category_name', 'start_time', 'end_time', 'user_name')
+                ->where('host_user_id', '=', $user_id)
                 ->get();
         // dd($post_show);
         return $post_show;
@@ -106,11 +111,22 @@ class Application extends Model
                 ->join('events', 'events.event_id', '=', 'applications.event_id')
                 ->join('event_actives', 'events.event_id', '=', 'event_active_id')
                 ->join('users', 'id', '=', 'user_id')
-                ->select('events.event_id', 'event_name', 'application_period', 'location', 'host_user_id', 'category_id')
+                ->join('categories', 'categories.category_id', '=', 'events.category_id')
+                ->select('events.event_id', 'event_name', 'application_period', 'location', 'host_user_id', 'events.category_id', 'event_img', 'category_name', 'start_time', 'end_time')
                 ->where('id', '=', $user_id)
                 ->where('end_time', '<', $now)
                 ->get();
-        // dd($past_applied_show);
-        return $past_applied_show;
+
+        $host_user_name_array = array();
+
+        foreach($past_applied_show as $past_applied) {
+            $host_user_name = DB::table('users')
+            ->join('user_details', 'users.id', '=', 'user_detail_id')
+            ->select('user_name')
+            ->where('id', $past_applied->host_user_id)
+            ->get();
+            array_push($host_user_name_array, $host_user_name[0]->user_name);
+        }
+        return array($past_applied_show, $host_user_name_array);
     }
 }

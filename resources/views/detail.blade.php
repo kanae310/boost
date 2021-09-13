@@ -43,10 +43,10 @@
 </div>
 <div>
     @if($applied_flag===0)
-        <a href="/event/detail/{{$event_detail['event_id']}}/apply">このイベントに申し込む</a>
+        <a class="btn btn-primary btn-rounded" href="/event/detail/{{$event_detail['event_id']}}/apply">このイベントに申し込む</a>
     @elseif($applied_flag===1)
         <p>すでに申し込みしています</p>
-        <a href="/event/detail/{{$event_detail['event_id']}}/cancel">このイベントをキャンセルする</a>
+        <a class="btn btn-outline-primary btn-rounded" href="/event/detail/{{$event_detail['event_id']}}/cancel">このイベントをキャンセルする</a>
     @elseif($applied_flag===2)
         <p>あなたはこのイベントの主催者です</p>
         <a href="/event/detail/{{$event_detail['event_id']}}/delete">このイベント削除する</a>

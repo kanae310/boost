@@ -84,10 +84,9 @@ class Event extends Model
 
         $user_id = Auth::id();
 
-        if (DB::table('applications')
-            ->join('events', 'applications.event_id', '=', 'events.event_id')
+        if (DB::table('events')
             ->where('host_user_id', '=', $user_id)
-            ->where('applications.event_id', '=', $event_id)
+            ->where('event_id', '=', $event_id)
             ->exists())
         {
             $judge_already_applied = 2;

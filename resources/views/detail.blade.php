@@ -5,7 +5,7 @@
     @if(isset($_GET['link']))
         @if ($_GET['link'] == 'eventStore')
             <div class="alert alert-info" role="alert" data-mdb-color="primary">
-                イベント作成を完了しました
+                イベント作成を完了しました！
             </div>
         @endif
     @endif
@@ -14,7 +14,7 @@
     @if(isset($_GET['link']))
         @if ($_GET['link'] == 'eventApply')
             <div class="alert alert-info" role="alert" data-mdb-color="primary">
-                イベントへの申し込みを完了しました
+                イベントへの申し込みを完了しました！
             </div>
         @endif
     @endif

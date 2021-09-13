@@ -12,6 +12,10 @@ body{
     background-color: #ffa200;
     border-color: #ffa200;
 }
+.btn-rounded {
+    border-radius: 10rem;
+}
+/*ここまでBootstrapのうわがき*/
 
 .top{
     margin:0 auto;

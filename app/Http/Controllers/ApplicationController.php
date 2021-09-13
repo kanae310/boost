@@ -17,7 +17,9 @@ class ApplicationController extends Controller
     {
         $res_data = $application->eventApply($event_id);
         $return_res_data = json_decode(json_encode($res_data), true);
-        return view('apply_completed', ['res_data'=>$return_res_data[0]]);
+        // return view('apply_completed', ['res_data'=>$return_res_data[0]]);
+        return redirect('/event/detail/' . $return_res_data[0]['event_id'] . '?link=eventApply');
+
     }
 
     /**
@@ -60,18 +62,21 @@ class ApplicationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($event_id, Application $application)
     {
-        //
+        $application->eventCancel($event_id);
+
+        return redirect('/event/detail/' . $event_id . '?link=eventCancel');
     }
 
     public function appliedShow(Application $application)
     {
         $applied_show = $application->appliedShow();
-        $applied_show = $applied_show->toJson();
+        $applied_show = $applied_show[0]->toJson();
+        $host_user_name = $applied_show[1];
         $return_applied = json_decode($applied_show,true);
 
-        return view('applied_show', ['applied_show' => $return_applied]);
+        return view('applied_show', ['applied_show' => $return_applied, 'host_user_id' => $host_user_name]);
 
     }
 

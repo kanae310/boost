@@ -104,10 +104,20 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($event_id, EventActive $event_active)
+    public function delete($event_id, EventActive $event_active)
     {
         $event_active->eventDelete($event_id);
 
-        return ;
+        return redirect('/event/' . '?link=eventDelete');
+    }
+
+    public function appliedShow(Event $event)
+    {
+        $applied_show = $event->appliedShow();
+        $applied_show = $applied_show->toJson();
+        $return_applied = json_decode($applied_show,true);
+        dd($return_applied[0]['event_img']);
+        return view('applied_show', ['applied_show' => $return_applied[0]]);
+
     }
 }

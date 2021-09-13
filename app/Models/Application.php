@@ -37,7 +37,7 @@ class Application extends Model
             'updated_at' => now(),
         ]);
         $res_data = DB::table('events')
-        ->select('discord_url','event_id')
+        ->select('event_id')
         ->where('event_id', '=', $event_id)
         ->get();
 
@@ -54,12 +54,20 @@ class Application extends Model
                 ->join('events', 'events.event_id', '=', 'applications.event_id')
                 ->join('event_actives', 'events.event_id', '=', 'event_active_id')
                 ->join('users', 'id', '=', 'user_id')
-                ->select('events.event_id', 'event_name', 'application_period', 'location', 'host_user_id', 'category_id')
+                ->join('categories', 'categories.category_id', '=', 'events.category_id')
+                ->select('events.event_id', 'event_name', 'application_period', 'location', 'host_user_id', 'events.category_id', 'event_img', 'category_name', 'start_time', 'end_time')
                 ->where('id', '=', $user_id)
                 ->where('end_time', '>', $now)
                 ->get();
 
-        return $applied_show;
+        // dd($applied_show[0]->host_user_id);
+        $host_user_name = DB::table('users')
+        ->join('user_details', 'users.id', '=', 'user_detail_id')
+        ->select('user_name')
+        ->where('id', $applied_show[0]->host_user_id)
+        ->get();
+        // dd($host_user_name);
+        return array($applied_show, $host_user_name);
     }
 
     // 投稿したイベント一覧

@@ -2,6 +2,7 @@
 
 @section('index')
     <div>
+        <p style="width: 20rem; margin-left: 29px;">申し込んだイベント一覧</p>
         @foreach ($applied_show as $key => $event)
             <div class="card mx-auto" style="width: 20rem; margin-bottom: 20px;">
                 <a href="/event/detail/{{$event['event_id']}}">
@@ -22,5 +23,6 @@
                 </a>
             </div>
         @endforeach
+        <a class="btn btn-secondary btn-rounded" href="/user" style="margin: 0 0 0 29px;">もどる</a>
     </div>
 @endsection

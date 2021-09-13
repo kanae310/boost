@@ -130,4 +130,15 @@ class Event extends Model
 
         return $event_id;
     }
+
+    public function eventDelete($event_id)
+    {
+        $user_id = Auth::id();
+
+        DB::table('events')
+            ->where('host_user_id', '=', $user_id)
+            ->delete();
+
+        return 0;
+    }
 }

@@ -44,7 +44,18 @@ class Application extends Model
         return $res_data;
     }
 
-    // 申し込んだイベント一覧
+    public function eventCancel($event_id)
+    {
+        $user_id = Auth::id();
+
+        DB::table('applications')
+            ->where('event_id', '=', $event_id)
+            ->where('applications.user_id', '=', $user_id)
+            ->delete();
+
+        return 0;
+    }
+
     public function appliedShow()
     {
         $user_id = Auth::id();

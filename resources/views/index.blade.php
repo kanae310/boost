@@ -4,9 +4,9 @@
     <div class="top">
         <div class="top-visual">
             <div class="top-item">
-                <img class="top-image" src="{{ asset('img/logo.png') }}" alt="">
-                <h4 class="top-comment">Isn't it connected to a new encounter?</h4>
-                <p class="top-comment">たくさんの出会い、繋がりがあるコミュニティ</p>
+                <img class="top-image" src="{{ asset('img/logo2.png') }}" alt="">
+                <h5 class="top-comment">Isn't it connected to a new encounter?</h5>
+                <p class="top-comment2">たくさんの出会い、繋がりがあるコミュニティ</p>
             </div>
         </div>
         <div class="card top-card">
@@ -19,7 +19,7 @@
                 </p>
             </div>
         </div>
-        <div class="card top-card" >
+        <div class="card top-card">
             <div class="card-body top-card-body">
                 <h5 class="card-title top-card-title">大学生限定!</h5>
                 <p class="card-text top-card-text">
